@@ -1,0 +1,38 @@
+
+@import "compass";
+
+#navigation {
+ background: none;
+  
+ 
+}
+
+
+.aui{
+      body{
+          background: #414445 url(../images/navigation/bg11.png);
+          
+         background-repeat: repeat-x y;
+
+         
+       }
+}
+
+.aui .navbar {margin-bottom:0px!important;}
+
+.aui .navbar-inner {
+    background-color: transparent !important;
+    background-repeat: initial !important;
+    border: medium none transparent !important;
+    border-radius: inherit !important;
+    box-shadow: none !important;
+    background-image:none !important;
+}
+
+.aui .navbar .nav > .active > a, .aui .navbar .nav > .active > a:hover, .aui .navbar .nav > .active > a:focus {
+   box-shadow: none !important;
+}
+
+.aui body {
+	background-size:100% 100%;
+	}

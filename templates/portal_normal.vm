@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="$root_css_class" dir="#language ("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>$the_title - $company_name</title>
+
+	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
+
+	$theme.include($top_head_include)
+</head>
+
+<body class="$css_class">
+
+<a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>
+
+$theme.include($body_top_include)
+
+#if ($is_signed_in)
+	#dockbar()
+#end
+
+<div class="container-fluid" id="wrapper">
+	<header id="banner" role="banner">
+	
+		#if (!$is_signed_in)
+			<span style="font-family:Arial; font-size:22px; margin-left:1293px;"><b><a data-redirect="$is_login_redirect_required" href="$sign_in_url" id="sign-in" rel="nofollow">$sign_in_text</a></b></span>
+		#end
+		
+		<div id="heading">
+		<table style="width:100%"> 
+   <tr>
+    <td><h6 class="site-title">
+				<a class="$logo_css_class" href="$site_default_url" title="#language_format ("go-to-x", [$site_name])">
+					<img alt="$logo_description" height="$site_logo_height" src="$site_logo" width="$site_logo_width" />
+				</a>
+				
+			</h6></td>
+     <td><h6 align="right"><b><a href="http://www.intuitivesurgical.com/company/legal/privacy.html" style="color:#6fa69f;">PRIVACY POLICY</font></a> &nbsp| &nbsp <a href="http://www.intuitivesurgical.com/company/legal/privacy.html" style="color:#6fa69f;">CONTACT &nbsp|</font></b></h6></td> 
+   
+   </tr>
+  
+</table>		
+		</div>
+
+	
+
+		#if ($has_navigation || $is_signed_in)
+			#parse ("$full_templates_path/navigation.vm")
+			
+		#end
+	</header>
+
+	<div id="content">
+	
+		#if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	</div>
+
+	<footer id="footer" role="contentinfo">
+		
+		<p class="powered-by" align="center">
+		
+		  <font size=2 align left color="gray"><img alt=""  src="/documents/20181/0/rights1.png"  />&nbsp2015 IntuitiveSurgical, Inc.All rights reserved.</font>
+		  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			 <a href="http://www.liferay.com" rel="external"><font size=1 color="gray">Surgeon List&nbsp</font></a>
+			 <font size=2>|&nbsp</font>
+			 <a href="http://www.liferay.com" rel="external"><font size=1 color="gray">Importent Patient Safety Information&nbsp</font></a>
+			  <font size=2>|&nbsp</font>
+			   <a href="http://www.liferay.com" rel="external"><font size=1 color="gray">Terms Of Use &nbsp</font></a>
+			     <font size=2>|&nbsp</font>
+			     <a href="http://www.liferay.com" rel="external"><font size=1 color="gray">Contact &nbsp</font></a>
+			     <font size=2>|&nbsp</font>
+			     <a href="http://www.liferay.com" rel="external"><font size=1 color="gray">Site Map &nbsp</font></a>
+			     <font size=3>|&nbsp</font>
+			     <img alt=""  src="/documents/20182/0/twitter.jpg"  />&nbsp&nbsp
+			      <img alt=""  src="/documents/20182/0/facebook.jpg"  />&nbsp&nbsp
+			       <img alt=""  src="/documents/20182/0/linkedin.jpg"  />&nbsp&nbsp
+		</p>
+	</footer>
+</div>
+
+$theme.include($body_bottom_include)
+
+$theme.include($bottom_include)
+
+</body>
+
+</html>
